@@ -1,0 +1,71 @@
+$base-spacing-unit: 24px;
+$half-spacing-unit: $base-spacing-unit/2;
+.clearfix,
+%clearfix {
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+}
+
+// ========== //
+// STORE PAGE //
+// ========== //
+
+// PRODUCTS //
+.product {
+	opacity: 0; // Products are hidden and shown using jquery animate and opacity. Setting this in the css stops are flash of content before the jquery loads and runs
+
+	border: 1px solid black;
+	padding: $half-spacing-unit;
+	margin: $half-spacing-unit 0;
+	@extend %clearfix;
+	h3 {
+		margin: 0;
+	}
+	img {
+		width: 200px;
+		float: left;
+		padding-right: $base-spacing-unit;
+	}
+}
+
+// FILTERS //
+
+.catalogue__filters {
+	width: 33.3%;
+
+	line-height: 1.8;
+
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding-left: 10px;
+	}
+	fieldset {
+		legend {
+			font-weight: bold;
+		}
+		fieldset {
+			border: 0;
+			margin: 0;
+			padding: 0;
+		}
+	}
+	input {
+		margin-right: 5px;
+	}
+}
+
+
+.catalogue__products {
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding-left: 0;
+	}
+	width: 66.6%;
+}

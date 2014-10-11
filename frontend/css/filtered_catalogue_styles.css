@@ -1,0 +1,51 @@
+.clearfix:after,
+.product:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.product {
+  opacity: 0;
+  border: 1px solid black;
+  padding: 12px;
+  margin: 12px 0;
+}
+.product h3 {
+  margin: 0;
+}
+.product img {
+  width: 200px;
+  float: left;
+  padding-right: 24px;
+}
+
+.catalogue__filters {
+  width: 33.3%;
+  line-height: 1.8;
+}
+.catalogue__filters ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 10px;
+}
+.catalogue__filters fieldset legend {
+  font-weight: bold;
+}
+.catalogue__filters fieldset fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.catalogue__filters input {
+  margin-right: 5px;
+}
+
+.catalogue__products {
+  width: 66.6%;
+}
+.catalogue__products ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+}
