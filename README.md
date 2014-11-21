@@ -1,5 +1,7 @@
 #Wordpress catalogue plugin
 
+> PLEASE NOTE: anything in a quote block like this is functionality I'd like to add but is not currently implemented.
+
 A simple catalogue plugin for products that (deliberately) contains no ecommerce abilities.
 
 It's fully responsive and uses list.js to make the list sortable
@@ -8,6 +10,9 @@ It's fully responsive and uses list.js to make the list sortable
 Born out of a frustration that other plugins were far too complex and heavy or lacked what I conceived as basic functionality.
 
 > Examples, screenshots and documentation all on github pages. Link.
+
+![screenshot](resources/screenshot.png "Screenshot")
+
 
 ##Basic usage
 
