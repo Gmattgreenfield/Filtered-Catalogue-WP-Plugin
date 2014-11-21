@@ -1,5 +1,5 @@
 
-    // List.js sort options
+    // List.js plugin sort options
     var options = {
       valueNames: [ 'product-title', 'price' ]
     };
@@ -40,4 +40,12 @@
         $('input:checkbox').prop('checked', false);
         // Prevent the button from reloading page
         return false;
+    });
+
+
+    // Expand fieldsets when clicked
+    // Uses CSS that applies to small screens only
+    // See fieldset.catalogue__filters--expanded css class
+    $('legend').click(function() {
+      $(this).parent().toggleClass('catalogue__filters--expanded');
     });

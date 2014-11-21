@@ -3,7 +3,6 @@
 
     <div class="catalogue__filters grid__item">
 
-
         <form id="filter" action="" method="">
 	        <!-- The below search field is nice but needs work, it only searches currently displayed products, not hidden ones -->
 			<!-- <input class="search" placeholder="Search" /> -->
@@ -18,7 +17,7 @@
 
             <fieldset>
                 <legend>Filter</legend>
-                <button id="clear-selected" class="btn">Clear Selected</button>
+                <button id="clear-selected" class="btn btn--primary">Clear Selected</button>
 
                 <fieldset>
                     <legend>Catergories</legend>

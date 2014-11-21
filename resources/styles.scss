@@ -1,5 +1,21 @@
+
+// Filtered Catalogue Wordpress Plugin Styles
+// This Sass file is compiled by using an online compiler (http://sassmeister.com/) and copying the minied result in to frontend/css/filtered-catalogue_styles.css
+
+
+// ========= //
+// Variables //
+// ========= //
+
 $base-spacing-unit: 24px;
 $half-spacing-unit: $base-spacing-unit/2;
+
+$palm: 690px;
+
+// ======= //
+// Helpers //
+// ======= //
+
 .clearfix,
 %clearfix {
 
@@ -11,11 +27,47 @@ $half-spacing-unit: $base-spacing-unit/2;
 
 }
 
-// ========== //
-// STORE PAGE //
-// ========== //
 
+// ==== //
+// Grid //
+// ==== //
+// From https://github.com/csswizardry/csswizardry-grids
+.grid {
+	list-style: none;
+	margin: 0;
+	margin-left: -$base-spacing-unit;
+	padding: 0;
+}
+.grid__item {
+	display: inline-block;
+	padding-left: $base-spacing-unit;
+	vertical-align: top;
+	width: 100%;
+}
+
+@media (min-width: $palm) {
+	.catalogue__filters {
+		width: 33.3%;
+	}
+	.catalogue__products {
+		width: 66.6%;
+	}
+}
+
+
+
+// ======== //
 // PRODUCTS //
+// ======== //
+
+.catalogue__products {
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding-left: 0;
+	}
+}
+
 .product {
 	opacity: 0; // Products are hidden and shown using jquery animate and opacity. Setting this in the css stops are flash of content before the jquery loads and runs
 
@@ -31,12 +83,18 @@ $half-spacing-unit: $base-spacing-unit/2;
 		float: left;
 		padding-right: $base-spacing-unit;
 	}
+	&__text {
+		margin-left: 200px;
+	}
 }
 
+
+
+// ======= //
 // FILTERS //
+// ======= //
 
 .catalogue__filters {
-	width: 33.3%;
 
 	line-height: 1.8;
 
@@ -57,15 +115,24 @@ $half-spacing-unit: $base-spacing-unit/2;
 	}
 	input {
 		margin-right: 5px;
+		cursor: pointer;
+	}
+	label {
+		cursor: pointer;
+	}
+}
+
+@media (max-width: $palm) {
+	// See relevant jquery, this class is toggled to show and hide fieldset content on mobile
+	fieldset.catalogue__filters--expanded,
+	fieldset fieldset {
+	  height: auto;
+	}
+
+	fieldset {
+	  height: 0;
+	  overflow: hidden;
 	}
 }
 
 
-.catalogue__products {
-	ul {
-		list-style-type: none;
-		margin: 0;
-		padding-left: 0;
-	}
-	width: 66.6%;
-}

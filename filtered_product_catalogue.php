@@ -194,7 +194,7 @@ add_action( 'init', 'register_shortcodes');
 
 // Attach the CSS and JS files to the page where the plugin is being used.
 function filtered_catalogue_includes () {
-	wp_enqueue_style( 'filtered_catalogue_frontend_css', plugins_url( '/filtered_product_catalogue/frontend/css/filtered_catalogue_styles.css' ));
+	wp_enqueue_style( 'filtered_catalogue_frontend_css', plugins_url( '/filtered_product_catalogue/frontend/css/filtered_catalogue_styles.min.css' ));
 	wp_enqueue_script( 'filtered_catalogue_frontend_list_js', plugins_url( '/filtered_product_catalogue/frontend/js/list.min.js' ), array(), '', true );
 	wp_enqueue_script( 'filtered_catalogue_frontend_js', plugins_url( '/filtered_product_catalogue/frontend/js/filtered_catalogue_js.js' ), array('jquery'), '', true );
 
