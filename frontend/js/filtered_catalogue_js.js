@@ -6,7 +6,7 @@
     var productList = new List('store', options);
 
     // Hide all products on page load
-    $('.product').hide();
+    $('.catalogue--product').hide();
 
     // Filters
     $( "input[type=checkbox]" ).click(function() {
@@ -35,7 +35,7 @@
     // 'Clear Selected' Button
     $( "#clear-selected" ).click(function() {
         // Hide all products
-        $('.product').hide();
+        $('.catalogue--product').hide();
         // Uncheck all the boxes
         $('input:checkbox').prop('checked', false);
         // Prevent the button from reloading page

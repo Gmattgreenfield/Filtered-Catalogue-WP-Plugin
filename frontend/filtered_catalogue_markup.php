@@ -113,7 +113,7 @@
 					$price = get_post_meta(get_the_ID(), 'product_price', true );
 
                     ?>
-                        <li class="product <?php echo $catergories . ' ' . $brand; ?>">
+                        <li class="catalogue--product <?php echo $catergories . ' ' . $brand; ?>">
                             <?php the_post_thumbnail() ?>
                             <div class="product__text">
                                 <h3 class="product-title"><?php the_title() ?></h3>
