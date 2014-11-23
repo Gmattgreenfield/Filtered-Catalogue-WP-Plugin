@@ -69,7 +69,6 @@ $palm: 690px;
 }
 
 .catalogue--product {
-	opacity: 0; // Products are hidden and shown using jquery animate and opacity. Setting this in the css stops are flash of content before the jquery loads and runs
 
 	border: 1px solid black;
 	padding: $half-spacing-unit;
