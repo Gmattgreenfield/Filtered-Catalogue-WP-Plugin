@@ -6,22 +6,36 @@
     var productList = new List('store', options);
 
 
+// Filters
 // Hide and show products when checkbox checked
+
 
 $( document ).ready (function() {
 
-    // Hide all products on page load
+    // Hide all products before page load
     $('.catalogue--product').hide();
 
-    // Filters
-    $( "input[type=checkbox]" ).click(function() {
+
+
+    // Toggle hide / show on checkbox click
+    $( "input[type=checkbox]" ).change(function() {
         // Get the id of the clicked checkbox
-		var category = $(this).attr("id");
+        var category = $(this).attr("id");
 
         // Show or Hide elements with the above ID as a class name
         $('.' + category).fadeToggle();
 
     });
+
+    // Because sometimes the box may be checked before the document is ready, or it may be prefilled and not clicked (eg. when the back button is used)
+    $("input[type='checkbox']:checked").each(function() {
+        // Get the id of the clicked checkbox
+        var category = $(this).attr("id");
+
+        // Show or Hide elements with the above ID as a class name
+        $('.' + category).fadeToggle();
+    });
+
 
 
     // 'Clear Selected' Button
@@ -37,11 +51,5 @@ $( document ).ready (function() {
     });
 
 
-    // Expand collapsed fieldsets when legen is clicked
-    // Uses CSS that applies to small screens only
-    // See fieldset.catalogue__filters--expanded css class
-    $('legend').click(function() {
-      $(this).parent().toggleClass('catalogue__filters--expanded');
-    });
 
 });
