@@ -1,27 +1,27 @@
 
 <div id="store" class="grid catalogue">
 
-    <div class="catalogue__filters grid__item">
+	<div class="catalogue__filters grid__item">
 
-        <form id="filter" action="" method="">
-	        <!-- The below search field is nice but needs work, it only searches currently displayed products, not hidden ones -->
+		<form id="filter" action="" method="">
+			<!-- The below search field is nice but needs work, it only searches currently displayed products, not hidden ones -->
 			<!-- <input class="search" placeholder="Search" /> -->
 
-            <fieldset>
-                <legend>Sort</legend>
-                <ul>
-                    <li><input type="radio" name="sort" class="sort" id="sort--price" data-sort="price"><label for="sort--price">Sort by Price</label></li>
-                    <li><input type="radio" name="sort" class="sort" id="sort--alpha" data-sort="product-title"><label for="sort--alpha">Sort Alphabetically</label></li>
-                </ul>
-            </fieldset>
+			<fieldset>
+				<legend>Sort</legend>
+				<ul class="catalogue__filters--sort">
+					<li><input type="radio" name="sort" class="sort" id="sort--price" data-sort="price"><label for="sort--price">Sort by Price</label></li>
+					<li><input type="radio" name="sort" class="sort" id="sort--alpha" data-sort="product-title"><label for="sort--alpha">Sort Alphabetically</label></li>
+				</ul>
+			</fieldset>
 
-            <fieldset>
-                <legend>Filter</legend>
-                <button id="clear-selected" class="btn btn--primary">Clear Selected</button>
+			<fieldset>
+				<legend>Filter</legend>
+				<button id="clear-selected" class="btn btn--primary">Clear Selected</button>
 
-                <fieldset>
-                    <legend>Catergories</legend>
-                    <ul>
+				<fieldset>
+					<legend>Catergories</legend>
+					<ul class="catalogue__filters--category">
 						<?php
 						// Create an array of all product_category taxonomies
 							$args = array(
@@ -33,21 +33,21 @@
 							// Loop through the array and create input checkboxs with them
 							foreach( $cats_list as $cat ) {
 								$category = $cat->slug;
-		                    	echo '<li>
-                                        <input type="checkbox" id="' . $category . '" value="' . $category . '">
-                                        <label for="' . $category . '">' . ucwords( str_replace("-", " ", $category) ) . '</label>
-                                    </li>';
-		                    	// unset the variable as its good practice
-		                    	unset($cat);
-		                    }
+								echo '<li>
+										<input type="checkbox" class="checkbox--category" id="checkbox--' . $category . '" value="' . $category . '">
+										<label for="checkbox--' . $category . '">' . ucwords( str_replace("-", " ", $category) ) . '</label>
+									</li>';
+								// unset the variable as its good practice
+								unset($cat);
+							}
 
 						?>
-                    </ul>
-                </fieldset>
+					</ul>
+				</fieldset>
 
-                <fieldset>
-                    <legend>Brands</legend>
-                    <ul>
+				<fieldset>
+					<legend>Brands</legend>
+					<ul class="catalogue__filters--brands">
 						<?php
 							// Create an array of all product_brand taxonomies
 							$args = array(
@@ -59,78 +59,78 @@
 							// Loop through the array and create input checkboxs with them
 							foreach( $cats_list as $cat ) {
 								$brand = $cat->slug;
-		                    	echo '<li>
-                                        <input type="checkbox" id="' . $brand . '" value="' . $brand . '">
-                                        <label for="' . $brand . '">' . ucwords( str_replace("-", " ", $brand) ) . '</label>
-                                    </li>';
-		                    	// unset the variable as its good practice
-		                    	unset($cat);
-		                    }
+								echo '<li>
+										<input type="checkbox" class="checkbox--brand" id="' . $brand . '" value="' . $brand . '">
+										<label for="' . $brand . '">' . ucwords( str_replace("-", " ", $brand) ) . '</label>
+									</li>';
+								// unset the variable as its good practice
+								unset($cat);
+							}
 						?>
-                    </ul>
-                </fieldset>
+					</ul>
+				</fieldset>
 
-            </fieldset>
+			</fieldset>
 
-        </form>
+		</form>
 
-    </div><!--
+	</div><!--
 
  --><div class="catalogue__products grid__item">
 
-        <ul class="list">
-            <?php
-                $argument = array(
-                  'post_type' => 'product'
-                );
-                $products = new WP_Query( $argument );
-                if( $products->have_posts() ) {
-                  while( $products->have_posts() ) {
-                    $products->the_post();
+		<ul class="list">
+			<?php
+				$argument = array(
+				  'post_type' => 'product'
+				);
+				$products = new WP_Query( $argument );
+				if( $products->have_posts() ) {
+				  while( $products->have_posts() ) {
+					$products->the_post();
 
-                    $id = $post->ID;
+					$id = $post->ID;
 
-                    // Get catergorie(s) for post/product
-                    $terms = get_the_terms( $id , 'product_category' );
-                    // Loop over each item since it's an array
-                    foreach( $terms as $term ) {
-                    	// Asign the output to the $catergories variable
-                    	$catergories = $term->slug . ' ';
-                    	// unset the variable so it can be re-used below
-                    	unset($term);
-                    }
+					// Get catergorie(s) for post/product
+					$terms = get_the_terms( $id , 'product_category' );
+					// Loop over each item since it's an array
+					foreach( $terms as $term ) {
+						// Asign the output to the $catergories variable
+						$catergories = $term->slug . ' ';
+						// unset the variable so it can be re-used below
+						unset($term);
+					}
 
-                    // Get Brand(s) for post/product
-                    $terms = get_the_terms( $id , 'product_brand' );
-                    // Loop over each item since it's an array
-                    foreach( $terms as $term ) {
-                    	// Asign the output to the $brand variable
-                    	$brand = $term->slug . ' ';
-                    	// unset the variable as its good practice
-                    	unset($term);
-                    }
+					// Get Brand(s) for post/product
+					$terms = get_the_terms( $id , 'product_brand' );
+					// Loop over each item since it's an array
+					foreach( $terms as $term ) {
+						// Asign the output to the $brand variable
+						$brand = $term->slug . ' ';
+						// unset the variable as its good practice
+						unset($term);
+					}
 
 					$price = get_post_meta(get_the_ID(), 'product_price', true );
 
-                    ?>
-                        <li class="catalogue--product <?php echo $catergories . ' ' . $brand; ?>">
-                            <?php the_post_thumbnail() ?>
-                            <div class="product__text">
-                                <h3 class="product-title"><?php the_title() ?></h3>
-                                <p class="price"><?php echo $price ?></p>
-                                <a href="<?php the_permalink( $id ) ?>">Find out more</a>
-                            </div>
-                        </li>
+					?>
+						<li class="catalogue__product <?php echo $catergories . ' ' . $brand; ?> category-not-selected brand-not-selected">
+							<?php the_post_thumbnail() ?>
+							<div class="product__text">
+								<h3 class="product-title"><?php the_title() ?></h3>
+								<p class="price"><?php echo $price ?></p>
+								<a href="<?php the_permalink( $id ) ?>">Find out more</a>
+							</div>
+						</li>
 
-                    <?php
-                  }
-                }
-                else {
-                  echo 'There are currently no products to display.';
-                }
-            ?>
-        </ul> <!-- End Grid -->
+					<?php
+				  }
+				}
+				else {
+				  echo 'There are currently no products to display.';
+				}
+			?>
+		</ul> <!-- End Grid -->
 
-    </div> <!-- End Products pane -->
+	</div> <!-- End Products pane -->
 
 </div>
