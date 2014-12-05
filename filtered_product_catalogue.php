@@ -1,16 +1,16 @@
 <?php
 /*
 Plugin Name: Filtered Catalogue Plugin
-Plugin URI: http://github.com/gmattgreenfield/catalogue
+Plugin URI: https://github.com/Gmattgreenfield/Filtered-Catalogue-WP-Plugin
 Description: A plugin to allow the creation of a sortable, filterable catalougue page, without the need or bloat of ecommerce.
-Version: 0.0.1
+Version: 0.0.2
 Author: Matt Greenfield
 Author URI: mattgreenfield.co.uk
 License:
 */
 
 //
-// CREATE PAGE IN BACKEND SETTINGS PANEL
+// CREATE PAGE IN SETTINGS PANEL
 //
 
 // This function create an options page on the wordpress side menu with the listed parameters.
@@ -66,6 +66,7 @@ function my_custom_post_product() {
 	'description'   => 'Holds our products and product specific data',
 	'public'        => true,
 	'menu_position' => 5,
+	'menu_icon' 	=> 'dashicons-tag',
 	'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
 	'has_archive'   => true,
   );
