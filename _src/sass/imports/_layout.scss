@@ -1,0 +1,24 @@
+
+// ====== //
+// LAYOUT //
+// ====== //
+
+.catalogue__filters {
+	width: 33.3%;
+}
+.catalogue__products {
+	width: 66.6%;
+}
+
+@if $responsive = true {
+
+	@media (max-width: $mobile-width) {
+		.catalogue__filters {
+			width: 100%;
+		}
+		.catalogue__products {
+			width: 100%;
+		}
+	}
+
+}

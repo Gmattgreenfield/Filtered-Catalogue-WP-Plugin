@@ -1,146 +1,38 @@
 
 // Filtered Catalogue Wordpress Plugin Styles
-// This Sass file is compiled by using an online compiler (http://sassmeister.com/) and copying the minied result in to frontend/css/filtered-catalogue_styles.css
 
 
-// ========= //
-// Variables //
-// ========= //
+// Defaults
 
-$base-spacing-unit: 24px;
-$half-spacing-unit: $base-spacing-unit/2;
+// Spacing
+$spacing-unit: 24px;
+$half-spacing-unit: $spacing-unit/2;
 
-$palm: 690px;
+// Layout
+$product-layout: list;
+$responsive: true;
+$mobile-width: 690px;
 
-// ======= //
-// Helpers //
-// ======= //
+$button-styling: false;
 
-.clearfix,
-%clearfix {
-
-	&:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
-
-}
-
-
-// ==== //
-// Grid //
-// ==== //
-// From https://github.com/csswizardry/csswizardry-grids
-.grid {
-	list-style: none;
-	margin: 0;
-	margin-left: -$base-spacing-unit;
-	padding: 0;
-}
-.grid__item {
-	display: inline-block;
-	padding-left: $base-spacing-unit;
-	vertical-align: top;
-	width: 100%;
-}
-
-@media (min-width: $palm) {
-	.catalogue__filters {
-		width: 33.3%;
-	}
-	.catalogue__products {
-		width: 66.6%;
-	}
-}
+// Colours
+$border-colour: black;
+$button-colour: red;
+$button-text-colour: white;
 
 
 
-// ======== //
-// PRODUCTS //
-// ======== //
 
-.catalogue__products {
-	ul {
-		list-style-type: none;
-		margin: 0;
-		padding-left: 0;
-	}
-}
-
-.catalogue__product {
-
-	border: 1px solid black;
-	padding: $half-spacing-unit;
-	margin: $half-spacing-unit 0;
-	@extend %clearfix;
-	h3 {
-		margin: 0;
-	}
-	img {
-		width: 200px;
-		float: left;
-		padding-right: $base-spacing-unit;
-	}
-	&__text {
-		margin-left: 200px;
-	}
-}
-
-
-
-// ======= //
-// FILTERS //
-// ======= //
-
-.catalogue__filters {
-
-	line-height: 1.8;
-
-	ul {
-		list-style-type: none;
-		margin: 0;
-		padding-left: 10px;
-	}
-	fieldset {
-		legend {
-			font-weight: bold;
-		}
-		fieldset {
-			border: 0;
-			margin: 0;
-			padding: 0;
-		}
-	}
-	input {
-		margin-right: 5px;
-		cursor: pointer;
-	}
-	label {
-		cursor: pointer;
-	}
-}
-
-
-
-@media (max-width: $palm) {
-	// See relevant jquery, this class is toggled to show and hide fieldset content on mobile
-	fieldset.catalogue__filters--expanded,
-	fieldset fieldset {
-	  height: auto;
-	}
-
-	fieldset {
-	  height: 0;
-	  overflow: hidden;
-	}
-}
-
-
+@import "imports/clearfix";
+@import "imports/grid";
+@import "imports/buttons";
+@import "imports/layout";
+@import "imports/products";
+@import "imports/filters";
 
 
 // Show and hide
-// This classes are added and removed in the javascript
+// These classes are added and removed in the javascript and are fundamental to how the whole thing works!
 
 .catalogue__product {
 	display: none;

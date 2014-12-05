@@ -1,0 +1,37 @@
+// ======== //
+// PRODUCTS //
+// ======== //
+
+.catalogue__products {
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding-left: 0;
+	}
+}
+
+li.catalogue__product {
+
+	border: 1px solid $border-colour;
+	padding: $half-spacing-unit;
+	margin: $half-spacing-unit 0;
+	@extend %clearfix;
+	h3 {
+		margin: 0;
+	}
+	img {
+		width: 200px;
+		float: left;
+		padding-right: $spacing-unit;
+	}
+	&__text {
+		margin-left: 200px;
+	}
+
+	@if $product-layout = grid {
+		width: 33%;
+		float: left;
+	}
+
+
+}

@@ -1,0 +1,32 @@
+// ======= //
+// BUTTONS //
+// ======= //
+
+
+@if $button-styling = true {
+
+	.btn {
+
+		padding: 10px 20px 10px 20px;
+		text-decoration: none;
+		border: none;
+
+		&:hover {
+
+		  text-decoration: none;
+		}
+	}
+
+
+	.btn--primary {
+
+		color: #ffffff;
+		background: #3498db;
+
+		&:hover {
+
+			background: #3cb0fd;
+		}
+	}
+
+}

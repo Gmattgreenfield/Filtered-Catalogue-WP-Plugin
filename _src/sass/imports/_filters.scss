@@ -1,0 +1,46 @@
+// ======= //
+// FILTERS //
+// ======= //
+
+.catalogue__filters {
+
+	line-height: 1.8;
+
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding-left: 10px;
+	}
+	fieldset {
+		legend {
+			font-weight: bold;
+		}
+		fieldset {
+			border: 0;
+			margin: 0;
+			padding: 0;
+		}
+	}
+	input {
+		margin-right: 5px;
+		cursor: pointer;
+	}
+	label {
+		cursor: pointer;
+	}
+}
+
+
+
+@media (max-width: $palm) {
+	// See relevant jquery, this class is toggled to show and hide fieldset content on mobile
+	fieldset.catalogue__filters--expanded,
+	fieldset fieldset {
+	  height: auto;
+	}
+
+	fieldset {
+	  height: 0;
+	  overflow: hidden;
+	}
+}
