@@ -170,11 +170,11 @@ function product_price_box_save( $post_id ) {
 
 
 // CREATE SHORTCODE TO OUTPUT HTML WITH [catalogue] TAG
-// the output is stored in frontend/filtered_catalogue_markup.php
+// the output is stored in assets/filtered_catalogue_markup.php
 
 // The content to output when the code is used.
 function outputhtml_function() {
-	$return_string = include 'frontend/filtered_catalogue_markup.php';
+	$return_string = include 'assets/filtered_catalogue_markup.php';
 	return $return_string;
 }
 
@@ -197,9 +197,9 @@ add_action( 'init', 'register_shortcodes');
 
 // Attach the CSS and JS files to the page where the plugin is being used.
 function filtered_catalogue_includes () {
-	wp_enqueue_style( 'filtered_catalogue_frontend_css', plugins_url( '/filtered_product_catalogue/frontend/css/filtered_catalogue_styles.min.css' ));
-	wp_enqueue_script( 'filtered_catalogue_frontend_list_js', plugins_url( '/filtered_product_catalogue/frontend/js/list.min.js' ), array(), '', true );
-	wp_enqueue_script( 'filtered_catalogue_frontend_js', plugins_url( '/filtered_product_catalogue/frontend/js/filtered_catalogue_js.js' ), array('jquery'), '', true );
+	wp_enqueue_style( 'filtered_catalogue_frontend_css', plugins_url( '/filtered_product_catalogue/assets/css/filtered_catalogue_styles.min.css' ));
+	wp_enqueue_script( 'filtered_catalogue_frontend_list_js', plugins_url( '/filtered_product_catalogue/assets/js/list.min.js' ), array(), '', true );
+	wp_enqueue_script( 'filtered_catalogue_frontend_js', plugins_url( '/filtered_product_catalogue/assets/js/filtered_catalogue_js.js' ), array('jquery'), '', true );
 
 }
 add_action('wp_enqueue_scripts','filtered_catalogue_includes');
@@ -213,7 +213,7 @@ function change_post_type_template($single_template) {
 	global $post;
 
 	if ($post->post_type == 'product') {
-		$single_template = plugin_dir_path( __FILE__ ) . 'frontend/filtered-catalogue-product-template.php';
+		$single_template = plugin_dir_path( __FILE__ ) . 'assets/filtered-catalogue-product-template.php';
 	}
 
 	return $single_template;
