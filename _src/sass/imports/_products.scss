@@ -29,8 +29,16 @@ li.catalogue__product {
 	}
 
 	@if $product-layout = grid {
-		width: 33%;
+		width: 30%;
 		float: left;
+		margin-right: 3%;
+
+		@if $responsive = true {
+			@media (max-width: $mobile-width) {
+				width: 100%;
+				margin-right: 0;
+		}
+
 	}
 
 
