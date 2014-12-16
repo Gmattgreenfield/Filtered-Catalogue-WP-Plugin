@@ -13,53 +13,44 @@
 // Filters
 // Hide and show products when checkbox checked
 
+function toggleSelectState(type) {
 
-function toggleCategory() {
-	// Get the id of the clicked checkbox
-	var category = $(this).attr("value");
+    if(type != "category" && type != "brand")  {
+        return; // stop the function.
+    }
 
-	// Show or Hide elements with the above ID as a class name
-	$('.' + category).toggleClass( "category-is-visable" );
+    // Get the class name of the clicked checkbox
+    var className = $(this).attr("value");
 
-	if ( $(".catalogue__product").hasClass("category-is-visable") ) {
-	    // if any category checkboxes are checked
-	    $('.catalogue__product').removeClass( "category-not-selected" );
-	} else {
-		// if none are checked
-		$('.catalogue__product').addClass( "category-not-selected" );
-	}
+    if(!className) {
+        return;
+    }
+
+    // Show or Hide elements with the above ID as a class name
+    $('.' + className).toggleClass( type + "-is-visable" );
+
+    if ( $(".catalogue__product").hasClass( type + "-is-visable") ) {
+        // if any [type] checkboxes are checked
+        $('.catalogue__product').removeClass( type + "-not-selected" );
+    } else {
+        // if none are checked
+        $('.catalogue__product').addClass( type + "-not-selected" );
+    }
 };
 
-
-function toggleBrand() {
-	// Get the id of the clicked checkbox
-	var brand = $(this).attr("value");
-
-	// Show or Hide elements with the above ID as a class name
-	$('.' + brand).toggleClass( "brand-is-visable" );
-
-
-	if ( $(".catalogue__product").hasClass("brand-is-visable") ) {
-	    // if any brand checkboxes are checked
-	    $('.catalogue__product').removeClass( "brand-not-selected" );
-	} else {
-		// if none are checked
-		$('.catalogue__product').addClass( "brand-not-selected" );
-	}
-};
 
 
 $( document ).ready (function() {
 
 
 // Run the toggle class functions on checkbox change
-	$( ".checkbox--category" ).change(toggleCategory);
-	$( ".checkbox--brand" ).change(toggleBrand);
+	$( ".checkbox--category" ).change( toggleSelectState(category) );
+	$( ".checkbox--brand" ).change( toggleSelectState(brand) );
 
 
 // Because sometimes the box may be checked before the document is ready, or it may be prefilled and not clicked (eg. when the back button is used)
-	$(".checkbox--catergory:checked").each(toggleCategory);
-	$(".checkbox--brand:checked").each(toggleBrand);
+	$(".checkbox--catergory:checked").each( toggleSelectState(category) );
+	$(".checkbox--brand:checked").each( toggleSelectState(brand) );
 
 
 // 'Clear Selected' Button
