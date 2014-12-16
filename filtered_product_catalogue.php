@@ -175,8 +175,14 @@ function product_price_box_save( $post_id ) {
 
 // The content to output when the code is used.
 function outputhtml_function() {
-	$return_string = include 'assets/filtered_catalogue_markup.php';
-	return $return_string;
+
+	// Credit to @AidanThreadgold
+	// See https://github.com/Gmattgreenfield/Filtered-Catalogue-WP-Plugin/issues/2
+	ob_start();
+    include 'assets/filtered_catalogue_markup.php';
+    $return_string = ob_get_clean();
+
+    return $return_string;
 }
 
 // Register the output to a shortcode
