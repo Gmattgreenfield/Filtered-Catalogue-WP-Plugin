@@ -179,10 +179,10 @@ function outputhtml_function() {
 	// Credit to @AidanThreadgold
 	// See https://github.com/Gmattgreenfield/Filtered-Catalogue-WP-Plugin/issues/2
 	ob_start();
-    include 'assets/filtered_catalogue_markup.php';
-    $return_string = ob_get_clean();
+	include 'assets/filtered_catalogue_markup.php';
+	$return_string = ob_get_clean();
 
-    return $return_string;
+	return $return_string;
 }
 
 // Register the output to a shortcode
