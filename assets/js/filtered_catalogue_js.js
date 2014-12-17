@@ -27,9 +27,9 @@ function toggleSelectState(type) {
     }
 
     // Show or Hide elements with the above ID as a class name
-    $('.' + className).toggleClass( type + "-is-visable" );
+    $('.' + className).toggleClass( type + "-is-visible" );
 
-    if ( $(".catalogue__product").hasClass( type + "-is-visable") ) {
+    if ( $(".catalogue__product").hasClass( type + "-is-visible") ) {
         // if any [type] checkboxes are checked
         $('.catalogue__product').removeClass( type + "-not-selected" );
     } else {
@@ -56,8 +56,8 @@ $( document ).ready (function() {
 // 'Clear Selected' Button
 	$( "#clear-selected" ).click(function() {
 		// Hide all products
-		$(".catalogue__product").removeClass( "category-is-visable" );
-		$(".catalogue__product").removeClass( "brand-is-visable" );
+		$(".catalogue__product").removeClass( "category-is-visible" );
+		$(".catalogue__product").removeClass( "brand-is-visible" );
 
 		$('.catalogue__product').addClass( "category-not-selected" );
 		$('.catalogue__product').addClass( "brand-not-selected" );
