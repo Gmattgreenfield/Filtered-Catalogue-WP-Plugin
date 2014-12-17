@@ -19,15 +19,15 @@ function toggleSelectState(type) {
         return; // stop the function.
     }
 
-    // Get the class name of the clicked checkbox
-    var className = $(this).attr("value");
+    // Get the value name of the clicked checkbox
+    var checkboxValue = $(this).attr("value");
 
-    if(!className) {
+    if(!checkboxValue) {
         return;
     }
 
-    // Show or Hide elements with the above ID as a class name
-    $('.' + className).toggleClass( type + "-is-visible" );
+    // Show or Hide elements with the above value as a class name
+    $('.' + checkboxValue).toggleClass( type + "-is-visible" );
 
     if ( $(".catalogue__product").hasClass( type + "-is-visible") ) {
         // if any [type] checkboxes are checked
@@ -44,13 +44,13 @@ $( document ).ready (function() {
 
 
 // Run the toggle class functions on checkbox change
-	$( ".checkbox--category" ).change( toggleSelectState(category) );
-	$( ".checkbox--brand" ).change( toggleSelectState(brand) );
+	$( ".checkbox--category" ).change( toggleSelectState("category") );
+	$( ".checkbox--brand" ).change( toggleSelectState("brand") );
 
 
 // Because sometimes the box may be checked before the document is ready, or it may be prefilled and not clicked (eg. when the back button is used)
-	$(".checkbox--catergory:checked").each( toggleSelectState(category) );
-	$(".checkbox--brand:checked").each( toggleSelectState(brand) );
+	$(".checkbox--catergory:checked").each( toggleSelectState("category") );
+	$(".checkbox--brand:checked").each( toggleSelectState("brand") );
 
 
 // 'Clear Selected' Button
